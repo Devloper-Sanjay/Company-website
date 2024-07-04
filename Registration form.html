@@ -28,7 +28,16 @@
         .header p{
           color: whitesmoke;
         }
+        .error-message{
+          color: red;
+          font-size: 0.9em;
+          margin-top: -10px;
+          margin-bottom: 10px;
+        }
     </style>
+
+    <script src="Form validation.js"></script>
+
 </head>
 <body>
   <nav class="navbar sticky-top navbar-expand-xl navbar-dark bg-dark">
@@ -37,7 +46,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark" aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse show" id="navbarDark">
+      <div class="collapse navbar-collapse" id="navbarDark">
         <ul class="navbar-nav me-auto mb-2 mb-xl-0 fs-5 ms-auto text-start">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.html">Home</a>
@@ -50,9 +59,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Internship</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Contact.html">Contact</a>
           </li>
         </ul>
       </div>
@@ -70,42 +76,50 @@
   </div>
   <div class="container">
     <h3 class="text my-5 fw-normal">Register</h3>
-    <form action="registration" method="post">
+    <form action="registration" method="post" id="registrationForm" onsubmit="return validateForm(event)">
         <label for="formControlInput" class="form-label">Full Name <span>*</span></label>
-        <input type="text" class="form-control mb-4" id="Name" placeholder="Ex: SANJAY S">
+        <input type="text" class="form-control mb-4" id="name" name="name" placeholder="Ex: SANJAY S" required>
+        <div id="nameError" class="error-message"></div>
         
         <label for="formControlInput" class="form-label">Email id <span>*</span></label>
-        <input type="email" class="form-control mb-4" id="Email" placeholder="Ex: sanjays@gmail.com">
+        <input type="email" class="form-control mb-4" id="email" name="email" placeholder="Ex: sanjays@gmail.com" required>
+        <div id="emailError" class="error-message"></div>
 
         <label for="formControlInput" class="form-label">Mobile Number <span>*</span></label>
-        <input type="text" class="form-control mb-4" id="Mobilenumber" placeholder="Ex: 9874563210">
+        <input type="text" class="form-control mb-4" id="mobilenumber" name="mobilenumber" placeholder="Ex: 9874563210" required>
+        <div id="mobileError" class="error-message"></div>
 
         <label for="formControlInput" class="form-label">University/College <span>*</span></label>
-        <input type="text" class="form-control mb-4" id="University" placeholder="Ex: Madras University">
+        <input type="text" class="form-control mb-4" id="university" name="university" placeholder="Ex: Madras University" required>
+        <div id="universityError" class="error-message"></div>
 
         <label for="formControlInput" class="form-label">Year of graduation <span>*</span></label>
-        <input type="text" class="form-control mb-4" id="Year" placeholder="Ex: 2024">
+        <input type="text" class="form-control mb-4" id="year" name="year" placeholder="Ex: 2024" required>
+        <div id="yearError" class="error-message"></div>
 
-        <label for="formControlInput" class="form-label">Contry/Region <span>*</span></label>
-        <input type="text" class="form-control mb-4" id="Country" placeholder="Ex: India">
+        <label for="formControlInput" class="form-label">Country/Region <span>*</span></label>
+        <input type="text" class="form-control mb-4" id="country" name="country" placeholder="Ex: India" required>
+        <div id="countryError" class="error-message"></div>
 
         <label for="formControlInput" class="form-label">Course <span>*</span></label>
-        <select class="form-select mb-4" id="Course" aria-label="Default select">
+        <select class="form-select mb-4" id="course" name="course" aria-label="Default select" required>
             <option selected="">Select</option>
             <option value="1">Web Development</option>
             <option value="2">App Development</option>
             <option value="3">Java Fullstack</option>
             <option value="4">UI/UX</option>
         </select>
+        <div id="courseError" class="error-message"></div>
 
         <label for="formControlInput" class="form-label">Duration <span>*</span></label>
-        <select class="form-select mb-4" id="Duration" aria-label="Default select">
+        <select class="form-select mb-4" id="duration" name="duration" aria-label="Default select" required>
             <option selected="">Select</option>
             <option value="1">1 week</option>
             <option value="2">2 weeks</option>
             <option value="3">1 month</option>
             <option value="4">3 months</option>
         </select>
+        <div id="durationError" class="error-message"></div>
 
         <div class="d-grid col-3 mx-auto">
             <button type="submit" class="btn btn-success">Register</button>
